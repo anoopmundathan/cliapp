@@ -1,16 +1,6 @@
 var https = require('https');
+var printer = require('./printer');
 
-
-// Print out message
-function printMessage(userName, badgeCount, points) {
-  var message = userName + " has " + badgeCount + " total badge(s) and " + points + " points in JavaScript";
-  console.log(message);
-}
-
-// Print out error message
-function printErrorMessage(error) {
-  console.log(error.message)
-}
 
 function get(username) {
   // Connect to API URL 
@@ -30,18 +20,23 @@ function get(username) {
         try {
           // Convert to JSON object
           var profile = JSON.parse(body);
-          printMessage(username, profile.badges.length, profile.points.JavaScript);
+          //printMessage(username, profile.badges.length, profile.points.JavaScript);
+          printer.print(username, profile.badges.length, profile.points.JavaScript);
+
         } catch(error) {
-          printErrorMessage(error);
+          // printErrorMessage(error);
+          printer.printerror(error);
         }
       } else {
-        printErrorMessage({message: "There was an error occured " + response.statusCode});
+        // printErrorMessage({message: "There was an error occured " + response.statusCode});
+        printer.printerror({message: "There was an error occured " + response.statusCode});
       }
     });
   });
 
   // Connection error
-  request.on('error', printErrorMessage);
+  // request.on('error', printErrorMessage);
+  request.on('error', printer.printerror);
 
 }
 
