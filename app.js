@@ -1,23 +1,14 @@
-var http = require('http');
-var url = 'http://www.omdbapi.com/?t=rambo&y=&plot=short&r=json';
-// var treehouseURL = 'http://teamtreehouse.com/chalkers.json';
+var profile = require('./profile');
 
-var request = http.get(url, function(response) {
-   
-  var body = "";
+//var users = ["anoopmundathan", "chalkers", "joykeston2"];
 
-  response.on('data', function(chunk) {
-  	body += chunk;
-  });
+// users.forEach(function(user) {
+//   profile.get(user);
+// });
 
-  response.on('end', function() {
-  	console.log(body);
-  	console.log(typeof(body));
-  	console.log(JSON.parse(body).Title);
-  });
+// users.forEach(profile.get);
 
-});
+// Access command Line argumnets
+var users = process.argv.slice(2);
+users.forEach(profile.get);
 
-request.on('error', function(e) {
-	console.error(e.message);
-})
