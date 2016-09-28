@@ -1,7 +1,6 @@
 var https = require('https');
 var printer = require('./printer');
 
-
 function get(username) {
   // Connect to API URL 
   var request = https.get("https://teamtreehouse.com/" + username + ".json", function(response) {
