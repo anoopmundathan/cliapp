@@ -9,6 +9,12 @@ create a directory and 'cd' in it.
 ```
 $ npm install --production cliapp && mv node_modules/* ./ && rmdir node_modules
 ```
+`cd` into the `cliapp` directory
+
+## Usage
+```
+$ node app.js <treehouse-user1> <treehouse-user2> 
+```
 
 #### Example
 ```

@@ -1,6 +1,6 @@
 {
   "name": "cliapp",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Command Line application to view Treehouse student badges and Javascript points",
   "main": "app.js",
   "scripts": {
