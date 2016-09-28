@@ -7,7 +7,7 @@ create a directory and 'cd' in it.
 
 #### Install via npm
 ```
-$ npm install --production cliapp && mv node_modules/* ./ && rmdir node_modules
+$ npm install cliapp && mv node_modules/* ./ && rmdir node_modules
 ```
 `cd` into the `cliapp` directory
 
